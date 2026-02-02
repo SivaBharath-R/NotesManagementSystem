@@ -122,6 +122,13 @@ body {
     border-radius: 12px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+        margin: 15px auto;
+    }
+}
 
 /* FLASH */
 .flash {
