@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="profile-card">
+    <h2>Edit Profile</h2>
+
+    <form method="post">
+        <label>First Name</label>
+        <input type="text" name="firstname" value="{{ user.firstname }}" required>
+
+        <label>Last Name</label>
+        <input type="text" name="lastname" value="{{ user.lastname }}" required>
+
+        <label>Email</label>
+        <input type="email" name="email" value="{{ user.email }}" required>
+
+        <button type="submit">Save Changes</button>
+        <a href="{{ url_for('profile') }}" class="cancel-btn">Cancel</a>
+    </form>
+</div>
+{% endblock %}

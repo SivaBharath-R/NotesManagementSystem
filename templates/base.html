@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Notes App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <!-- LEFT: LOGO -->
+        <div class="nav-left">
+            <span class="logo">
+                <span class="logo-icon">
+                    <i class="fa-solid fa-note-sticky"></i>
+                </span>
+                <span class="logo-text">NotesApp</span>
+            </span>
+        </div>
+
+        <!-- RIGHT: LINKS -->
+        <div class="nav-right">
+
+            <!-- About is PUBLIC -->
+
+            {% if session.user_id %}
+            <!-- Logged-in links -->
+             <a href="{{ url_for('contact') }}">Contact</a>
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('add_note') }}">Add Note</a>
+
+            <a href="{{ url_for('profile') }}" class="user">
+                <i class="fa-solid fa-user"></i> {{ session.firstname }}
+            </a>
+
+
+            <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+            {% else %}
+            <!-- Guest links -->
+             <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('login') }}" class="login-btn">Login</a>
+            <a href="{{ url_for('register') }}" class="register-btn">Register</a>
+            {% endif %}
+        </div>
+    </nav>
+
+
+    {% if session.user_id and request.endpoint == 'dashboard' %}
+    <form method="get" action="{{ url_for('search_notes') }}" class="search-form">
+        <input type="text" name="query" placeholder="Search notes by title..."
+            value="{{ request.args.get('query', '') }}">
+        <button type="submit">Search</button>
+    </form>
+    {% endif %}
+
+
+
+
+    <div class="container">
+        {% with messages = get_flashed_messages() %}
+        {% for msg in messages %}
+        <div class="flash">{{ msg }}</div>
+        {% endfor %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer class="footer">
+        © 2026  All Rights Reserved <br>Notes Management System-Developed by Siva Bharath <br>
+        Tech-Stack: HTML, CSS, Flask, MySQL
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="profile-card">
+    <h2>My Profile</h2>
+
+    <div class="profile-item">
+        <strong>First Name:</strong> {{ user.firstname }}
+    </div>
+
+    <div class="profile-item">
+        <strong>Last Name:</strong> {{ user.lastname }}
+    </div>
+
+    <div class="profile-item">
+        <strong>Email:</strong> {{ user.email }}
+    </div>
+
+    <a href="{{ url_for('edit_profile') }}" class="edit-btn">Edit Profile</a>
+</div>
+{% endblock %}
