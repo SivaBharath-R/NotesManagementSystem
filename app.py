@@ -230,7 +230,7 @@ If you did not request this, ignore this email.
 """
             mail.send(msg)
 
-        flash(" Reset link has been sent to Email Successfuly!!.")
+        flash(" If Mail Exits, Reset link has been sent to Email Successfuly!!.")
         return redirect(url_for('login'))
 
     return render_template('forgot_password.html')

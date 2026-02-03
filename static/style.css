@@ -375,3 +375,50 @@ label {
 .nav-right .user {
     margin-left: 20px;  /* THIS creates separation */
 }
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: #1e293b;
+  color: white;
+}
+
+.nav-right a {
+  margin-left: 15px;
+  color: white;
+  text-decoration: none;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-right {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .nav-right a {
+    padding: 10px;
+    border-top: 1px solid #334155;
+  }
+
+  .nav-right.show {
+    display: flex;
+  }
+}

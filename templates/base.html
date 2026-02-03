@@ -6,8 +6,7 @@
     <title>Notes App</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <meta name="viewport"
-    content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
@@ -24,29 +23,21 @@
         </div>
 
         <!-- RIGHT: LINKS -->
-        <div class="nav-right">
+        <div class="nav-right" id="navMenu">
+    {% if session.get('user_id') %}
+      <a href="{{ url_for('dashboard') }}">Dashboard</a>
+      <a href="{{ url_for('add_note') }}">Add Note</a>
+      <a href="{{url_for('contact')}}">Contact</a>
+      <a href="{{ url_for('about') }}">About</a>
 
-            <!-- About is PUBLIC -->
-
-            {% if session.user_id %}
-            <!-- Logged-in links -->
-             <a href="{{ url_for('contact') }}">Contact</a>
-            <a href="{{ url_for('dashboard') }}">Dashboard</a>
-            <a href="{{ url_for('add_note') }}">Add Note</a>
-
-            <a href="{{ url_for('profile') }}" class="user">
-                <i class="fa-solid fa-user"></i> {{ session.firstname }}
-            </a>
-
-
-            <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
-            {% else %}
-            <!-- Guest links -->
-             <a href="{{ url_for('about') }}">About</a>
-            <a href="{{ url_for('login') }}" class="login-btn">Login</a>
-            <a href="{{ url_for('register') }}" class="register-btn">Register</a>
-            {% endif %}
-        </div>
+      <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+    {% else %}
+      <a href="{{ url_for('login') }}">Login</a>
+      <a href="{{ url_for('register') }}">Register</a>
+      <a href="{{ url_for('about') }}">About</a>
+      <a href="{{url_for('contact')}}">Contact</a>
+    {% endif %}
+  </div>
     </nav>
 
 
@@ -71,9 +62,15 @@
     </div>
 
     <footer class="footer">
-        © 2026  All Rights Reserved <br>Notes Management System-Developed by Siva Bharath <br>
+        © 2026  All Rights Reserved <br>Notes Management System-Developed by: <b style="color: black;">Siva Bharath Raparla</b> <br>
         Tech-Stack: HTML, CSS, Flask, MySQL
     </footer>
+<script>
+function toggleMenu() {
+  const menu = document.getElementById("navMenu");
+  menu.classList.toggle("show");
+}
+</script>
 
 </body>
 
