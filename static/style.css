@@ -24,7 +24,7 @@ body {
     background: rgba(0,0,0,0.18);
 }
 
-.nav-left a
+.nav-left a,
 .nav-right {
     display: flex;
     align-items: center;

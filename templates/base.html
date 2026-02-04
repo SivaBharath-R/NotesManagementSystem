@@ -22,22 +22,27 @@
             </span>
         </div>
 
+        <!-- HAMBURGER (MOBILE) -->
+        <button class="menu-toggle" onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+        </button>
+
         <!-- RIGHT: LINKS -->
         <div class="nav-right" id="navMenu">
-    {% if session.get('user_id') %}
-      <a href="{{ url_for('dashboard') }}">Dashboard</a>
-      <a href="{{ url_for('add_note') }}">Add Note</a>
-      <a href="{{url_for('contact')}}">Contact</a>
-      <a href="{{ url_for('about') }}">About</a>
+            {% if session.get('user_id') %}
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('add_note') }}">Add Note</a>
+            <a href="{{url_for('contact')}}">Contact</a>
+            <a href="{{ url_for('about') }}">About</a>
 
-      <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
-    {% else %}
-      <a href="{{ url_for('login') }}">Login</a>
-      <a href="{{ url_for('register') }}">Register</a>
-      <a href="{{ url_for('about') }}">About</a>
-      <a href="{{url_for('contact')}}">Contact</a>
-    {% endif %}
-  </div>
+            <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+            {% else %}
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register') }}">Register</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{url_for('contact')}}">Contact</a>
+            {% endif %}
+        </div>
     </nav>
 
 
@@ -62,15 +67,16 @@
     </div>
 
     <footer class="footer">
-        © 2026  All Rights Reserved <br>Notes Management System-Developed by: <b style="color: black;">Siva Bharath Raparla</b> <br>
+        © 2026 All Rights Reserved <br>Notes Management System-Developed by: <b style="color: black;">Siva Bharath
+            Raparla</b> <br>
         Tech-Stack: HTML, CSS, Flask, MySQL
     </footer>
-<script>
-function toggleMenu() {
-  const menu = document.getElementById("navMenu");
-  menu.classList.toggle("show");
-}
-</script>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("navMenu");
+            menu.classList.toggle("show");
+        }
+    </script>
 
 </body>
 
