@@ -169,7 +169,7 @@ input, textarea {
 }
 
 button {
-    width: 100%;
+    width: auto;
     margin-top: 15px;
     padding: 10px;
     border: none;
@@ -405,7 +405,7 @@ label {
 
   .menu-toggle {
     display: block;
-    margin-left: auto;        /* 👈 pushes it to right */
+    margin-left:auto;        /* 👈 pushes it to right */
     font-size: 24px;
     background: none;
     border: none;
@@ -429,7 +429,7 @@ label {
   }
 
   .nav-right a {
-    padding: 12px;
+    padding: 6px;
     border-top: 1px solid rgba(255,255,255,0.2);
   }
 }
